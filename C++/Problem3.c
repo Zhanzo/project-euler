@@ -1,5 +1,6 @@
-#include <stdio.h>
+#include <iostream>
 #include <math.h>
+using namespace std;
 
 bool isPrime(int number)
 {
@@ -33,5 +34,5 @@ int main()
     }
   }
 
-  printf("%d \n", max_factor);
+  cout << max_factor << endl;
 }

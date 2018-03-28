@@ -1,4 +1,5 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
 int main()
 {
@@ -10,6 +11,5 @@ int main()
       sum += i;
     }
   }
-  printf("%d", sum);
-  printf("\n");
+  cout << sum << endl;
 }

@@ -46,7 +46,7 @@ int main()
       }
     }
   }
-  cout << max_palindrome << "\n";
+  cout << max_palindrome << endl;
   
 }
 
