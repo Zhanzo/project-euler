@@ -1,7 +1,7 @@
 def calcProd(number, i, adjacent):
     prod = 1
-    max = i + adjacent
-    while (i < max):
+    max_adjacent = i + adjacent
+    while (i < max_adjacent):
         prod = prod * int(number[i])
         i += 1
     return prod

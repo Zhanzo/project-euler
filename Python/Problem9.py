@@ -8,13 +8,9 @@ def findTriplet(sum):
     return 0
 
 def isPythagorean(a, b, c):
-    sum = (a**2) + (b**2)
-    if (sum == c**2):
-        return True
-    else:
-        return False
+    return (a*a + b*b == c*c)
 
-def main(sum):
-    print(findTriplet(sum))
+def main(number):
+    print(findTriplet(number))
     
 main(1000)

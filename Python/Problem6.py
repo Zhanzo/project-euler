@@ -1,15 +1,15 @@
 def squareSum(n):
-    sum = 0
+    square_sum = 0
     for i in range(1, n+1):
-        sum += i
-    sum = sum*sum
-    return sum
+        square_sum += i
+    square_sum *= square_sum
+    return square_sum
 
 def sumSquares(n):
-    sum = 0
+    sum_squares = 0
     for i in range(1, n+1):
-        sum += (i*i)
-    return sum
+        sum_squares += (i*i)
+    return sum_squares
 
 def main(n):
     square_sum = squareSum(n)
