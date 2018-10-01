@@ -1,4 +1,16 @@
-s = 0
+def main(numbers):
+    total_sum = calc_sum(numbers)
+    print(total_sum)
+
+def calc_sum(numbers):
+    s = 0
+    numbers = [int(i) for i in numbers.split("\n")]
+    total_sum = sum(numbers)
+    sum_length = len(str(total_sum))
+    sum_length -= 10 # Keep the 10 first digit
+    for i in range(sum_length) :
+        total_sum //= 10
+    return total_sum
 
 numbers = "37107287533902102798797998220837590246510135740250\n\
 46376937677490009712648124896970078050417018260538\n\
@@ -100,6 +112,5 @@ numbers = "37107287533902102798797998220837590246510135740250\n\
 72107838435069186155435662884062257473692284509516\n\
 20849603980134001723930671666823555245252804609722\n\
 53503534226472524250874054075591789781264330331690"
-numbers = [int(i) for i in numbers.split("\n")]
-s = sum(numbers)
-print(s)
+
+main(numbers)
