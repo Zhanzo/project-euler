@@ -1,15 +1,21 @@
 
-i = 98
-s = 100*99
+def main(number):
+    faculty = get_faculty(number)
+    digit_sum = sum_digits(faculty)
+    print(digit_sum)
 
-while i > 0:
-    s = s * (100*i)
-    i -= 1
-print(s)
+def sum_digits(number):
+    digit_sum = 0
+    while (number > 0):
+        digit_sum += number%10
+        number //= 10
+    return digit_sum
 
-n = str(s)
-s2 = 0
+def get_faculty(number):
+    faculty = 1
+    while (number > 0):
+        faculty *= number
+        number -= 1
+    return faculty
 
-for item in n:
-    s2 += int(item)
-print(s2)
+main(100)
