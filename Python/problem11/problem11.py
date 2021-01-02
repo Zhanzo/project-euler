@@ -62,6 +62,6 @@ def solve(grid: list[list[int]]):
     return greatest_product
 
 
-grid = read_input()
-print(grid)
-print(solve(grid))
+if __name__ == "__main__":
+    grid = read_input()
+    print(solve(grid))
