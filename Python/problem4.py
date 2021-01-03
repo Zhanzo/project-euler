@@ -1,19 +1,21 @@
-def isPalindrome(number):
-    digits = []
-    while (number > 0):
-        digits.append(number % 10)
-        number = number // 10
-    for i in range (0, len(digits)):
-        if (digits[i] != digits[len(digits)-1-i]):
-            return False
-    return True
+def reverse_string(string: str) -> str:
+    return string[::-1]
 
-def main():
-    max_prod = 0
-    for i in range(1, 1000):
-        for j in range(1, 1000):
-            if ((isPalindrome(i*j)) and (i*j > max_prod)):
-                max_prod = i*j
-    print(max_prod)
 
-main()
+def is_palindrome(number: str) -> bool:
+    number_reverse: str = reverse_string(number)
+    return number == number_reverse
+
+
+def solve(start: int, stop: int) -> int:
+    max_product: int = 0
+    for i in range(start, stop):
+        for j in range(start, stop):
+            product: int = i * j
+            if is_palindrome(str(product)) and product > max_product:
+                max_product = product
+    return max_product
+
+
+if __name__ == "__main__":
+    print(solve(100, 1000))

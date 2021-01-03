@@ -1,11 +1,7 @@
+def solve(power: int) -> int:
+    number: int = pow(2, power)
+    return sum([int(i) for i in str(number)])
 
-def main():
-    number = 2**1000
-    digit_sum = 0
-    while number > 0:
-        digit_sum += number % 10
-        number = number // 10
-    print(digit_sum)
 
 if __name__ == '__main__':
-    main()
+    print(solve(1000))

@@ -1,20 +1,21 @@
-from math import sqrt
+import math
 
-def isPrime(number):
-    for i in range(3, round(sqrt(number))+1, 2):
-        if (number % i == 0):
+
+def is_prime(number: int) -> bool:
+    for i in range(2, math.ceil(math.sqrt(number)), 1):
+        if number % i == 0:
             return False
     return True
 
-def main():
-    number = 600851475143
-    max_factor = 0
 
-    for i in range (3, round(sqrt(number))+1, 2):
-        if (number % i == 0):
-            if (isPrime(i)):
-                max_factor = i
+def solve(number: int) -> int:
+    factor: int = 0
+    for i in range(1, math.ceil(math.sqrt(number)), 1):
+        if number % i == 0:
+            if is_prime(i):
+                factor = i
+    return factor
 
-    print(max_factor)
 
-main()
+if __name__ == "__main__":
+    print(solve(600851475143))

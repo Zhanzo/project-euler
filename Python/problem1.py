@@ -1,8 +1,10 @@
-def main():
-    sum_divisible = 0
-    for i in range(3, 1000):
+def solve(maximum: int) -> int:
+    sum_divisible: int = 0
+    for i in range(3, maximum):
         if (i % 3 == 0 or i % 5 == 0):
             sum_divisible += i
-    print(sum_divisible)
+    return sum_divisible
 
-main()
+
+if __name__ == "__main__":
+    print(solve(1000))

@@ -1,5 +1,5 @@
 def read_input() -> list[list[int]]:
-    with open("data.txt", "r") as fp:
+    with open("problem11.txt", "r") as fp:
         return [string_to_int(line.split(" ")) for line in fp.readlines()]
 
 
