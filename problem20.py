@@ -1,21 +1,13 @@
+import math
 
-def main(number):
-    faculty = get_faculty(number)
-    digit_sum = sum_digits(faculty)
-    print(digit_sum)
 
-def sum_digits(number):
-    digit_sum = 0
-    while (number > 0):
-        digit_sum += number%10
-        number //= 10
-    return digit_sum
+def solve(number: int) -> int:
+    return get_digit_sum(math.factorial(number))
 
-def get_faculty(number):
-    faculty = 1
-    while (number > 0):
-        faculty *= number
-        number -= 1
-    return faculty
 
-main(100)
+def get_digit_sum(number: int) -> int:
+    return sum(int(digit) for digit in str(number))
+
+
+if __name__ == "__main__":
+    print(solve(100))
