@@ -1,6 +1,5 @@
 def solve(size: int):
-    grid: list[list[int]] = [[1 for _ in range(size + 1)]
-                             for _ in range(size + 1)]
+    grid: list[list[int]] = [[1 for _ in range(size + 1)] for _ in range(size + 1)]
     for i in range(size):
         for j in range(size):
             grid[i + 1][j] += grid[i][j]

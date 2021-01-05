@@ -3,5 +3,5 @@ def solve(power: int) -> int:
     return sum([int(i) for i in str(number)])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(solve(1000))

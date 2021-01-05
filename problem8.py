@@ -8,16 +8,16 @@ def read_file() -> list[int]:
 
 
 def calc_product(number: list[int], index: int, adjacent_numbers: int):
-    return functools.reduce(lambda a, b: a * b,
-                            [number[index + offset]
-                                for offset in range(adjacent_numbers)]
-                            )
+    return functools.reduce(
+        lambda a, b: a * b,
+        [number[index + offset] for offset in range(adjacent_numbers)],
+    )
 
 
 def solve(number: list[int], adjacent_numbers: int) -> int:
     max_prod = 0
     for i in range(len(number) - adjacent_numbers - 1):
-        prod = calc_product(number, i, adjacent_numbers)
+        prod: int = calc_product(number, i, adjacent_numbers)
         if prod > max_prod:
             max_prod = prod
     return max_prod
