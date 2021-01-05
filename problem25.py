@@ -1,19 +1,9 @@
-def main(num_digits):
-    index = fibonacci(num_digits)
-    print(index)
+def solve(num_digits: int) -> int:
+    fibonacci_numbers: list[int] = [1, 1]
+    while len(str(fibonacci_numbers[-1])) < num_digits:
+        fibonacci_numbers.append(fibonacci_numbers[-1] + fibonacci_numbers[-2])
+    return len(fibonacci_numbers)
 
-def fibonacci(num_digits):
-    x = 0
-    y = 1
-    z = 0
-    index = 1
-    while (len(str(z)) < num_digits):
-        z = x + y
-        temp = y
-        y = x + y
-        x = temp
-        index += 1
-    print(z)
-    return index
 
-main(1000)
+if __name__ == "__main__":
+    print(solve(1000))
