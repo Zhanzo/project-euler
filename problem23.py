@@ -1,34 +1,38 @@
-import math
-
-
-def get_divisors(number: int) -> set[int]:
-    divisors: set = set([1])
-    for i in range(2, math.ceil(math.sqrt(number)) + 1):
-        if number % i == 0 and i < number:
-            divisors.add(i)
-            divisors.add(number // i)
-    return divisors
-
-
 def get_divisor_sum(number: int) -> int:
-    return sum(get_divisors(number))
+    divisor_sum: int = 0
+
+    for i in range(1, number // 2 + 1):
+        if number % i == 0:
+            divisor_sum += i
+
+    return divisor_sum
 
 
-def get_abundant_numbers(number: int) -> list[int]:
-    return list(filter(lambda a: get_divisor_sum(a) > a, [i for i in range(number)]))
+def get_abundant_numbers(limit: int) -> list[int]:
+    return list(filter(lambda a: get_divisor_sum(a) > a, [i for i in range(limit)]))
 
 
-def solve(number: int) -> int:
-    abundant_numbers: list[int] = get_abundant_numbers(number)
-    non_abundant_nums: list[int] = [i for i in range(number)]
-    for i in range(len(abundant_numbers)):
-        for j in range(i, len(abundant_numbers)):
-            number_sum: int = abundant_numbers[i] + abundant_numbers[j]
-            if number_sum < number:
-                non_abundant_nums[number_sum] = 0
-            else:
-                break
-    return sum(non_abundant_nums)
+def get_abundant_sums(abundant_numbers: list[int], limit: int) -> list[int]:
+    abundant_sums: list[int] = []
+
+    for a in abundant_numbers:
+        for b in abundant_numbers:
+            if a + b < limit:
+                abundant_sums.append(a + b)
+
+    return abundant_sums
+
+
+def solve(limit: int) -> int:
+    abundant_numbers: list[int] = get_abundant_numbers(limit)
+    abundant_sums: list[int] = get_abundant_sums(abundant_numbers, limit)
+    non_abundant_sum: int = 0
+
+    for num in range(1, limit):
+        if num not in abundant_sums:
+            non_abundant_sum += num
+
+    return non_abundant_sum
 
 
 if __name__ == "__main__":
