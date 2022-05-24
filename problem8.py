@@ -7,7 +7,7 @@ def read_file() -> list[int]:
         return [int(i) for i in contents]
 
 
-def calc_product(number: list[int], index: int, adjacent_numbers: int):
+def calc_product(number: list[int], index: int, adjacent_numbers: int) -> int:
     return functools.reduce(
         lambda a, b: a * b,
         [number[index + offset] for offset in range(adjacent_numbers)],

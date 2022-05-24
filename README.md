@@ -1,5 +1,4 @@
-# Project\_Euler
-Solutions to Project Euler exercises in C++ and Python.
+# Project_Euler
 
-## Python
+Solutions to Project Euler exercises Python.
 The python files do currently not have any dependencies.

@@ -7,7 +7,7 @@ def solve(number: int) -> int:
     return 0
 
 
-def is_pythagorean(a: int, b: int, c: int):
+def is_pythagorean(a: int, b: int, c: int) -> bool:
     return pow(a, 2) + pow(b, 2) == pow(c, 2)
 
 

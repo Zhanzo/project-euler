@@ -43,6 +43,7 @@ def solve() -> int:
     single_and_double_sum: int = (
         single_digit_sum + double_digit_sum1 + double_digit_sum2
     )
+
     triple_digits: int = (
         single_digit_sum * 100 + single_and_double_sum * 9 + hundred + hundred_and
     )

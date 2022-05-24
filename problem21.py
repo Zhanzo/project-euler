@@ -7,18 +7,14 @@ def get_divisor_sum(number: int) -> int:
 
 
 def solve(number: int) -> int:
-    divisor_sums: list[int] = [0 for _ in range(number)]
-    for i in range(1, number):
-        divisor_sums[i] = get_divisor_sum(i)
-
+    divisor_sums: list[int] = [get_divisor_sum(i) for i in range(number)]
     amicable_numbers_sum: int = 0
-    for i in range(1, number):
-        if (
-            divisor_sums[i] <= number
-            and i != divisor_sums[i]
-            and i == divisor_sums[divisor_sums[i]]
-        ):
-            amicable_numbers_sum += i
+
+    for a in range(number):
+        b = divisor_sums[a]
+        if b <= number and b != a and a == divisor_sums[b]:
+            amicable_numbers_sum += a
+
     return amicable_numbers_sum
 
 

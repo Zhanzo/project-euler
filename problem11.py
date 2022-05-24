@@ -43,7 +43,7 @@ def diag_right_product(grid: list[list[int]], row_index: int, column_index: int)
     return product
 
 
-def solve(grid: list[list[int]]):
+def solve(grid: list[list[int]]) -> int:
     greatest_product: int = 0
     for row_index in range(len(grid)):
         for column_index in range(len(grid[row_index])):
