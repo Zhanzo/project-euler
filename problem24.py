@@ -1,16 +1,18 @@
 import math
 
 
-def solve(permutation_value: int, values: list[int]) -> int:
+def solve(permutation_value: int, values: list[int]) -> str:
     if len(values) == 1:
         return str(values[0])
 
-    perumutation: int = math.factorial(len(values) - 1)
+    permutation: int = math.factorial(len(values) - 1)
+
     for i in range(len(values)):
-        if (i + 1) * perumutation > permutation_value:
+        if (i + 1) * permutation > permutation_value:
             break
+
     value: int = values.pop(i)
-    return str(value) + solve(permutation_value - i * perumutation, values)
+    return str(value) + solve(permutation_value - i * permutation, values)
 
 
 if __name__ == "__main__":

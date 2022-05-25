@@ -1,28 +1,32 @@
+import decimal
+
+
 def find_cycle(number: int) -> int:
-    current_remainder: int = 1 % number
-    remainders: list[int] = [current_remainder]
+    found_remainders = [0 for _ in range(number)]
+    value = 1
+    index = 0
 
-    while True:
-        current_remainder = current_remainder * 10 % number
-        if current_remainder not in remainders:
-            remainders.append(current_remainder)
-        elif current_remainder == remainders[0]:
-            return len(remainders)
-        else:
-            return 1
+    while found_remainders[value] == 0 and value != 0:
+        found_remainders[value] = index
+        value *= 10
+        value %= number
+        index += 1
 
-    return 0
+    return index - found_remainders[value]
 
 
-def solve(number: int) -> int:
+def solve(limit: int) -> int:
     longest_cycle: int = 0
-    d: int = 0
-    for i in range(2, number):
-        cycle_length: int = find_cycle(i)
+    max_d: int = 0
+
+    for d in range(2, limit):
+        cycle_length: int = find_cycle(d)
+
         if longest_cycle < cycle_length:
             longest_cycle = cycle_length
-            d = i
-    return d
+            max_d = d
+
+    return max_d
 
 
 if __name__ == "__main__":
